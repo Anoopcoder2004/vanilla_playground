@@ -9,3 +9,6 @@ form {
   flex-direction: column;
   gap: 15px;
 }
+.hidden{
+  display:none;
+}

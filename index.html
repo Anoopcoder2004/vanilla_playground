@@ -11,10 +11,11 @@
 </head>
 <body>
     <h1> User Registration </h1><br>
-    <form id="registrationForm">
+    <form id="registrationForm" novalidate>
         <input id="username" type="text" placeholder="Enter username">
         <input id="phone" type="tel" placeholder="Enter phone number">
         <input id="email" type="email" placeholder="Enter email">
+        <p id="error" class="hidden"></p>
         <input id="password" type="password" placeholder="Enter password">
         <button type="submit">Submit</button>
     </form>
