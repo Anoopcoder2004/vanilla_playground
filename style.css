@@ -1,14 +1,9 @@
 body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;   
+  background-color:white;
+  color:black;
+  transition :0.3s;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.hidden{
-  display:none;
+body.dark{
+  background-color: #121212;
+  color:white;
 }
