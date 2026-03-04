@@ -5,7 +5,12 @@ function calculateSum() {
   document.getElementById("sum").innerHTML = sum;
 }
 function add(a,b){
-  return Number(a) + Number(b);
+  const num1 = Number(a);
+  const num2 = Number(b);
+  if(isNaN(num1) || isNaN(num2)){
+    throw new Error("Invalid input");
+  }
+  return num1 + num2;
 }
 //needed for jest
 module.exports = { add };
