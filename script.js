@@ -1,13 +1,11 @@
-const toggleBtn = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
-    document.body.classList.add("dark");
+function calculateSum() {
+  const num1 = Number(document.getElementById("num1").value);
+  const num2 = Number(document.getElementById("num2").value);
+  const sum = add(num1,num2);
+  document.getElementById("sum").innerHTML = sum;
 }
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
-});
+function add(a,b){
+  return Number(a) + Number(b);
+}
+//needed for jest
+module.exports = { add };
