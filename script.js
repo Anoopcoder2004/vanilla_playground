@@ -1,16 +1,19 @@
-function calculateSum() {
-  const num1 = Number(document.getElementById("num1").value);
-  const num2 = Number(document.getElementById("num2").value);
-  const sum = add(num1,num2);
-  document.getElementById("sum").innerHTML = sum;
+function saveName(){
+  const name = document.getElementById('nameInput').value;
+  localStorage.setItem('username',name);
+  showName();
 }
-function add(a,b){
-  const num1 = Number(a);
-  const num2 = Number(b);
-  if(isNaN(num1) || isNaN(num2)){
-    throw new Error("Invalid input");
+
+function showName(){
+  const savedName = localStorage.getItem('username');
+  const theme = localStorage.getItem('')
+  if(savedName){
+    document.getElementById('displayName').innerHTML = "Saved: " + savedName;
   }
-  return num1 + num2;
+  clear();
 }
-//needed for jest
-module.exports = { add };
+showName();
+
+function clear(){
+localStorage.clear();
+}
