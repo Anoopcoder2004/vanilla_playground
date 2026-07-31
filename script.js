@@ -1,26 +1,41 @@
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const loginBtn = document.getElementById("loginBtn");
 const status = document.getElementById("status");
-const button = document.getElementById("orderBtn");
 
-// Chef
-function makePizza(callback) {
+// Simulate API call
+function login(username, password, callback) {
 
-    status.innerText = "👨‍🍳 Cooking pizza...";
+    status.innerText = "Checking credentials...";
 
     setTimeout(() => {
 
-        status.innerText = "🍕 Pizza is ready!";
+        const success =
+            username === "anoop" &&
+            password === "1234";
 
-        callback();
+        callback(success);
 
-    }, 3000);
+    }, 2000);
+}
+
+// Callback function
+function handleLogin(result) {
+
+    if (result) {
+        status.innerText = "✅ Login Successful";
+    } else {
+        status.innerText = "❌ Invalid Username or Password";
+    }
 
 }
 
-// Delivery person
-function notifyCustomer() {
-    alert("🚪 Your pizza has arrived!");
-}
+// Button Click
+loginBtn.addEventListener("click", () => {
 
-button.addEventListener("click", () => {
-    makePizza(notifyCustomer);
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    login(username, password, handleLogin);
+
 });
