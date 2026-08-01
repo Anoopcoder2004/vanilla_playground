@@ -1,41 +1,66 @@
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-const loginBtn = document.getElementById("loginBtn");
-const status = document.getElementById("status");
+const output = document.getElementById("output");
+const startBtn = document.getElementById("startBtn");
 
-// Simulate API call
-function login(username, password, callback) {
+function print(message) {
+    output.innerHTML += `<p>${message}</p>`;
+}
 
-    status.innerText = "Checking credentials...";
+function login(callback) {
+    print("Logging in...");
 
     setTimeout(() => {
-
-        const success =
-            username === "anoop" &&
-            password === "1234";
-
-        callback(success);
-
-    }, 2000);
+        print("✅ Logged in");
+        callback();
+    }, 1000);
 }
 
-// Callback function
-function handleLogin(result) {
+function getProfile(callback) {
+    print("Fetching profile...");
 
-    if (result) {
-        status.innerText = "✅ Login Successful";
-    } else {
-        status.innerText = "❌ Invalid Username or Password";
-    }
-
+    setTimeout(() => {
+        print("✅ Profile fetched");
+        callback();
+    }, 1000);
 }
 
-// Button Click
-loginBtn.addEventListener("click", () => {
+function getPosts(callback) {
+    print("Fetching posts...");
 
-    const username = usernameInput.value;
-    const password = passwordInput.value;
+    setTimeout(() => {
+        print("✅ Posts fetched");
+        callback();
+    }, 1000);
+}
 
-    login(username, password, handleLogin);
+function displayPosts(callback) {
+    print("Displaying posts...");
+
+    setTimeout(() => {
+        print("✅ Posts displayed");
+        callback();
+    }, 1000);
+}
+
+startBtn.addEventListener("click", () => {
+
+    output.innerHTML = "";
+
+    login(() => {
+
+        getProfile(() => {
+
+            getPosts(() => {
+
+                displayPosts(() => {
+
+                    print("🎉 All tasks completed!");
+
+                });
+
+            });
+
+        });
+
+    });
 
 });
