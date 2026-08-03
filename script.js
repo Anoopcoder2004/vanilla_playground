@@ -1,66 +1,74 @@
-const output = document.getElementById("output");
-const startBtn = document.getElementById("startBtn");
+function practice1() {
+    try {
+        console.log(userName);
+    } catch (error) {
+        console.log("Error Caught!");
+        console.log(error.message);
+    }
 
-function print(message) {
-    output.innerHTML += `<p>${message}</p>`;
+    console.log("----------------");
 }
 
-function login(callback) {
-    print("Logging in...");
+function practice2() {
+    function divide(a, b) {
+        if (b === 0) {
+            throw new Error("Cannot divide by zero.");
+        }
 
-    setTimeout(() => {
-        print("✅ Logged in");
-        callback();
-    }, 1000);
+        return a / b;
+    }
+
+    try {
+        console.log(divide(20, 0));
+    } catch (error) {
+        console.log(error.message);
+    }
+
+    console.log("----------------");
 }
 
-function getProfile(callback) {
-    print("Fetching profile...");
+function practice3() {
+    try {
+        let age = "abc";
 
-    setTimeout(() => {
-        print("✅ Profile fetched");
-        callback();
-    }, 1000);
+        if (isNaN(age)) {
+            throw new Error("Age must be a number.");
+        }
+
+        console.log(age);
+
+    } catch (error) {
+        console.log(error.message);
+    }
+
+    console.log("----------------");
 }
 
-function getPosts(callback) {
-    print("Fetching posts...");
+function practice4() {
+    let json = "{name:'Anoop'}";
 
-    setTimeout(() => {
-        print("✅ Posts fetched");
-        callback();
-    }, 1000);
+    try {
+        let data = JSON.parse(json);
+        console.log(data);
+    } catch (error) {
+        console.log("Invalid JSON");
+        console.log(error.message);
+    }
+
+    console.log("----------------");
 }
 
-function displayPosts(callback) {
-    print("Displaying posts...");
+function practice5() {
+    try {
+        console.log("Inside try");
 
-    setTimeout(() => {
-        print("✅ Posts displayed");
-        callback();
-    }, 1000);
+        throw new Error("Something went wrong!");
+
+    } catch (error) {
+        console.log(error.message);
+    } finally {
+        console.log("Finally always executes.");
+    }
+
+    console.log("----------------");
 }
-
-startBtn.addEventListener("click", () => {
-
-    output.innerHTML = "";
-
-    login(() => {
-
-        getProfile(() => {
-
-            getPosts(() => {
-
-                displayPosts(() => {
-
-                    print("🎉 All tasks completed!");
-
-                });
-
-            });
-
-        });
-
-    });
-
-});
