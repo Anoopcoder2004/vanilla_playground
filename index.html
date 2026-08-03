@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Try Catch Practice</title>
+    <title>Call Stack Demo</title>
 </head>
 <body>
 
-    <h1>JavaScript Try...Catch Practice</h1>
+<button onclick="start()">Run</button>
 
-    <button onclick="practice1()">1. Undefined Variable</button>
-    <button onclick="practice2()">2. Divide by Zero</button>
-    <button onclick="practice3()">3. Number Validation</button>
-    <button onclick="practice4()">4. JSON Parse</button>
-    <button onclick="practice5()">5. Finally</button>
+<script>
+function first() {
+    console.log("Inside first");
+}
 
-    <script src="script.js"></script>
+function second() {
+    first();
+    console.log("Inside second");
+}
+
+function start() {
+    second();
+    console.log("Inside start");
+}
+</script>
 
 </body>
 </html>
