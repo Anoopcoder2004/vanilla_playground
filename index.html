@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Call Stack Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Loop Demo</title>
 </head>
 <body>
 
-<button onclick="start()">Run</button>
+    <h2>JavaScript Event Loop Demo</h2>
 
-<script>
-function first() {
-    console.log("Inside first");
-}
+    <button id="btn">Run Demo</button>
 
-function second() {
-    first();
-    console.log("Inside second");
-}
+    <p>Open the browser console (F12 → Console)</p>
 
-function start() {
-    second();
-    console.log("Inside start");
-}
-</script>
+    <script src="script.js"></script>
 
 </body>
 </html>
