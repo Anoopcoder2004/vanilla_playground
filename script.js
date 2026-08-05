@@ -1,29 +1,20 @@
 const btn = document.getElementById("btn");
 const output = document.getElementById("output");
 
-function delay(ms) {
-    return new Promise(resolve => {
-        setTimeout(resolve, ms);
-    });
-}
-
-async function loadUser() {
-    output.textContent = "Loading...";
-
-    console.log("Fetching user...");
-
-    await delay(2000);
-
-    output.textContent = "Welcome, Anoop!";
-    console.log("User loaded.");
-}
-
 btn.addEventListener("click", () => {
-    console.clear();
 
-    console.log("Button clicked");
+    navigator.geolocation.getCurrentPosition((position) => {
 
-    loadUser();
+        output.innerHTML = `
+            <h3>Your Location</h3>
 
-    console.log("UI is still responsive");
+            Latitude : ${position.coords.latitude}
+
+            <br><br>
+
+            Longitude : ${position.coords.longitude}
+        `;
+
+    });
+
 });
