@@ -1,20 +1,26 @@
-let count = 0;
+const button = document.getElementById("load");
+const list = document.getElementById("users");
 
-const btn = document.getElementById("btn");
-const heading = document.getElementById("count");
+button.addEventListener("click", loadUsers);
 
-btn.addEventListener("click", increase);
+async function loadUsers() {
 
-function increase() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
 
-    updateCount();
+    const users = await res.json();
 
-    heading.textContent = count;
+    renderUsers();
 
 }
 
-function updateCount() {
+function renderUsers(users) {
 
-    let count = count + 1;
+    list.innerHTML = "";
+
+    users.forEach(user => {
+
+        list.innerHTML += `<li>${user.name}</li>`;
+
+    });
 
 }
