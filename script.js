@@ -1,25 +1,35 @@
-const button = document.getElementById("load");
-const list = document.getElementById("users");
+const users = ["Anoop","Rahul","Arjun","Andrew"];
 
-button.addEventListener("click", loadUsers);
+const input = document.getElementById("search");
+const list = document.getElementById("list");
 
-async function loadUsers() {
+render(users);
 
-    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+input.addEventListener("input", search);
 
-    const users = await res.json();
+function search() {
 
-    renderUsers();
+    const value = input.value.toLowerCase();
+
+    const filtered = users.filter(user =>
+        user.toLowerCase().includes(value)
+    );
+
+    users.length = 0;
+
+    users.push(...filtered);
+
+    render(filtered);
 
 }
 
-function renderUsers(users) {
+function render(data) {
 
     list.innerHTML = "";
 
-    users.forEach(user => {
+    data.forEach(user => {
 
-        list.innerHTML += `<li>${user.name}</li>`;
+        list.innerHTML += `<li>${user}</li>`;
 
     });
 
