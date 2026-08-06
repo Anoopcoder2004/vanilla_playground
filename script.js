@@ -1,23 +1,20 @@
-const priceInput = document.getElementById("price");
-const quantityInput = document.getElementById("quantity");
-const result = document.getElementById("result");
-const button = document.getElementById("calculate");
+let count = 0;
 
-button.addEventListener("click", calculate);
+const btn = document.getElementById("btn");
+const heading = document.getElementById("count");
 
-function calculate() {
+btn.addEventListener("click", increase);
 
-    let price = Number(priceInput.value);
-    let quantity = Number(quantityInput.value);
+function increase() {
 
-    let total = multiply(price, quantity);
+    updateCount();
 
-    result.textContent = `Total: ₹${total}`;
+    heading.textContent = count;
 
 }
 
-function multiply(price, quantity) {
+function updateCount() {
 
-    return price + quantity;
+    let count = count + 1;
 
 }
