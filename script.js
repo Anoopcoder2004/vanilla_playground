@@ -1,20 +1,23 @@
-const btn = document.getElementById("btn");
-const output = document.getElementById("output");
+const priceInput = document.getElementById("price");
+const quantityInput = document.getElementById("quantity");
+const result = document.getElementById("result");
+const button = document.getElementById("calculate");
 
-btn.addEventListener("click", () => {
+button.addEventListener("click", calculate);
 
-    navigator.geolocation.getCurrentPosition((position) => {
+function calculate() {
 
-        output.innerHTML = `
-            <h3>Your Location</h3>
+    let price = Number(priceInput.value);
+    let quantity = Number(quantityInput.value);
 
-            Latitude : ${position.coords.latitude}
+    let total = multiply(price, quantity);
 
-            <br><br>
+    result.textContent = `Total: ₹${total}`;
 
-            Longitude : ${position.coords.longitude}
-        `;
+}
 
-    });
+function multiply(price, quantity) {
 
-});
+    return price + quantity;
+
+}
