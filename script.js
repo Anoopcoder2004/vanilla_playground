@@ -1,36 +1,63 @@
-const users = ["Anoop","Rahul","Arjun","Andrew"];
+const users = [
+    "Anoop",
+    "Rahul",
+    "Arjun",
+    "Andrew",
+    "John",
+    "Alice",
+    "Bob",
+    "Charlie",
+    "David",
+    "Emma",
+    "Frank",
+    "George",
+    "Harry",
+    "Isabella",
+    "Jack"
+];
 
-const input = document.getElementById("search");
+const pageSize = 5;
+
+let currentPage = 1;
+
 const list = document.getElementById("list");
 
-render(users);
+document.getElementById("next").addEventListener("click", nextPage);
+document.getElementById("prev").addEventListener("click", prevPage);
 
-input.addEventListener("input", search);
+render();
 
-function search() {
+function nextPage() {
 
-    const value = input.value.toLowerCase();
+    currentPage++;
 
-    const filtered = users.filter(user =>
-        user.toLowerCase().includes(value)
-    );
-
-    users.length = 0;
-
-    users.push(...filtered);
-
-    render(filtered);
+    render();
 
 }
 
-function render(data) {
+function prevPage() {
+
+    if (currentPage > 1) {
+        currentPage--;
+    }
+
+    render();
+
+}
+
+function render() {
+
+    currentPage = 1;
 
     list.innerHTML = "";
 
-    data.forEach(user => {
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
 
+    const pageUsers = users.slice(start, end);
+
+    pageUsers.forEach(user => {
         list.innerHTML += `<li>${user}</li>`;
-
     });
 
 }

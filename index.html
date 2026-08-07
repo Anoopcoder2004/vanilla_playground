@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Debugging Challenge</title>
+</head>
 <body>
 
-<h2>Search Users</h2>
+    <h2>User List</h2>
 
-<p><strong>Issue:</strong> Search works the first time, but after clearing the input and searching again, some users never come back.</p>
+    <p style="color:red;">
+        <strong>Issue:</strong>
+        Clicking <b>Next</b> should display the next 5 users.
+        However, it always displays the first page.
+        Investigate the bug using DevTools. Do not modify the code until you find the cause.
+    </p>
 
-<input id="search" placeholder="Search users">
+    <ul id="list"></ul>
 
-<ul id="list"></ul>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
