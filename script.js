@@ -1,63 +1,30 @@
-const users = [
-    "Anoop",
-    "Rahul",
-    "Arjun",
-    "Andrew",
-    "John",
-    "Alice",
-    "Bob",
-    "Charlie",
-    "David",
-    "Emma",
-    "Frank",
-    "George",
-    "Harry",
-    "Isabella",
-    "Jack"
-];
+const input = document.getElementById("search");
+const result = document.getElementById("result");
 
-const pageSize = 5;
+input.addEventListener("input", handleSearch);
 
-let currentPage = 1;
+function fakeApi(value) {
 
-const list = document.getElementById("list");
+    return new Promise(resolve => {
 
-document.getElementById("next").addEventListener("click", nextPage);
-document.getElementById("prev").addEventListener("click", prevPage);
+        const delay = Math.random() * 3000;
 
-render();
+        setTimeout(() => {
 
-function nextPage() {
+            resolve(value);
 
-    currentPage++;
+        }, delay);
 
-    render();
-
-}
-
-function prevPage() {
-
-    if (currentPage > 1) {
-        currentPage--;
-    }
-
-    render();
-
-}
-
-function render() {
-
-    currentPage = 1;
-
-    list.innerHTML = "";
-
-    const start = (currentPage - 1) * pageSize;
-    const end = start + pageSize;
-
-    const pageUsers = users.slice(start, end);
-
-    pageUsers.forEach(user => {
-        list.innerHTML += `<li>${user}</li>`;
     });
+
+}
+
+async function handleSearch() {
+
+    const value = input.value;
+
+    const response = await fakeApi(value);
+
+    result.textContent = response;
 
 }

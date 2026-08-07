@@ -2,26 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagination Debugging Challenge</title>
+    <title>Search Debugging Challenge</title>
 </head>
 <body>
 
-    <h2>User List</h2>
+<h2>Live User Search</h2>
 
-    <p style="color:red;">
-        <strong>Issue:</strong>
-        Clicking <b>Next</b> should display the next 5 users.
-        However, it always displays the first page.
-        Investigate the bug using DevTools. Do not modify the code until you find the cause.
-    </p>
+<p style="color:red">
+    <strong>Issue:</strong>
+    Type quickly:
+    <br><br>
 
-    <ul id="list"></ul>
+    a
+    <br>
+    then immediately
+    <br>
+    an
 
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
+    <br><br>
 
-    <script src="script.js"></script>
+    Sometimes the UI shows results for the old search instead of the latest one.
+
+    <br><br>
+
+    Find the bug using DevTools.
+    Don't modify the code until you understand why it happens.
+</p>
+
+<input id="search" placeholder="Search">
+
+<h3>Current Search</h3>
+
+<div id="result"></div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
