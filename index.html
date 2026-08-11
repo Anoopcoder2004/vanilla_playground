@@ -2,38 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search Debugging Challenge</title>
+    <title>Advanced JS Debugging</title>
 </head>
+
 <body>
 
-<h2>Live User Search</h2>
+<h2>Advanced JavaScript Debugging Challenge</h2>
 
 <p style="color:red">
+
     <strong>Issue:</strong>
-    Type quickly:
+
+    The employee report is producing incorrect results.
+
     <br><br>
 
-    a
+    The requirements are:
+
+    <br><br>
+
+    1. Only active employees should appear.
+
     <br>
-    then immediately
+
+    2. Employees with a salary below ₹30,000 should receive
+    a 10% salary increase.
+
     <br>
-    an
+
+    3. The final report should contain:
+    <b>id, name, department and finalSalary</b>.
+
+    <br>
+
+    4. Employees should be sorted by finalSalary,
+    highest to lowest.
 
     <br><br>
 
-    Sometimes the UI shows results for the old search instead of the latest one.
+    The API data is correct, but the final report contains
+    incorrect employees and/or salary values.
 
     <br><br>
 
-    Find the bug using DevTools.
-    Don't modify the code until you understand why it happens.
+    Use Chrome DevTools → Sources.
+
+    <br>
+
+    Do not modify the code until you understand
+    where the data becomes incorrect.
+
 </p>
-
-<input id="search" placeholder="Search">
-
-<h3>Current Search</h3>
-
-<div id="result"></div>
 
 <script src="script.js"></script>
 
