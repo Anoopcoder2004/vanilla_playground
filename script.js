@@ -1,42 +1,28 @@
 const employees = [
     {
-        id: 101,
+        id: 1,
         name: "Anoop",
         department: "Frontend",
         salary: 28000,
         active: true
     },
     {
-        id: 102,
+        id: 2,
         name: "Rahul",
         department: "Backend",
         salary: 45000,
-        active: false
+        active: true
     },
     {
-        id: 103,
+        id: 3,
         name: "Arjun",
         department: "Frontend",
-        salary: 32000,
-        active: true
-    },
-    {
-        id: 104,
-        name: "Andrew",
-        department: "Backend",
         salary: 25000,
-        active: true
-    },
-    {
-        id: 105,
-        name: "John",
-        department: "QA",
-        salary: 29000,
         active: false
     },
     {
-        id: 106,
-        name: "David",
+        id: 4,
+        name: "Andrew",
         department: "QA",
         salary: 27000,
         active: true
@@ -44,28 +30,27 @@ const employees = [
 ];
 
 
-function generateReport(data) {
+function generateReport(employees) {
 
-    const activeEmployees = data.filter(employee => {
-        return employee.active;
+    const activeEmployees = employees.filter(employee => {
+
+        return employee.active === true;
+
     });
 
 
     const processedEmployees = activeEmployees.map(employee => {
 
-        const result = employee;
-
         if (employee.salary < 30000) {
 
-            result.salary = employee.salary * 1.10;
+            employee.salary = employee.salary * 1.10;
 
         }
 
         return {
-            id: result.id,
-            name: result.name,
-            department: result.department,
-            finalSalary: result.salary
+            name: employee.name,
+            department: employee.department,
+            salary: employee.salary
         };
 
     });
@@ -73,26 +58,34 @@ function generateReport(data) {
 
     processedEmployees.sort((a, b) => {
 
-        return a.finalSalary < b.finalSalary;
+        return a.salary - b.salary;
 
     });
 
 
-    const frontendEmployees = processedEmployees.filter(employee => {
+    const totalSalary = processedEmployees.reduce(
+        (total, employee) => {
 
-        return employee.department = "Frontend";
+            return total + employee.salary;
 
-    });
+        },
+        0
+    );
 
 
-    return frontendEmployees;
+    return {
+        employees: processedEmployees,
+        totalSalary: totalSalary
+    };
 }
 
 
 const report = generateReport(employees);
 
-console.log("FINAL REPORT");
-console.table(report);
+console.log("REPORT");
+console.table(report.employees);
 
-console.log("ORIGINAL DATA");
+console.log("TOTAL SALARY:", report.totalSalary);
+
+console.log("ORIGINAL EMPLOYEES");
 console.table(employees);

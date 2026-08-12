@@ -2,55 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Advanced JS Debugging</title>
+    <title>Array Transformation Debugging</title>
 </head>
 
 <body>
 
-<h2>Advanced JavaScript Debugging Challenge</h2>
+<h2>Employee Report</h2>
 
-<p style="color:red">
+<p style="color:red;">
 
     <strong>Issue:</strong>
 
-    The employee report is producing incorrect results.
+    The application receives the correct employee data from the API.
 
     <br><br>
 
-    The requirements are:
+    The report should:
 
     <br><br>
 
-    1. Only active employees should appear.
-
+    1. Include only active employees.
     <br>
-
-    2. Employees with a salary below ₹30,000 should receive
-    a 10% salary increase.
-
+    2. Increase salaries below ₹30,000 by 10%.
     <br>
-
-    3. The final report should contain:
-    <b>id, name, department and finalSalary</b>.
-
+    3. Convert each employee into:
     <br>
-
-    4. Employees should be sorted by finalSalary,
-    highest to lowest.
+    <code>
+        { name, department, salary }
+    </code>
+    <br>
+    4. Sort employees by salary from highest to lowest.
+    <br>
+    5. Calculate the total salary.
 
     <br><br>
 
-    The API data is correct, but the final report contains
-    incorrect employees and/or salary values.
+    However, the final report contains incorrect values.
 
     <br><br>
 
-    Use Chrome DevTools → Sources.
-
-    <br>
-
-    Do not modify the code until you understand
-    where the data becomes incorrect.
+    <strong>
+        Find where the data becomes incorrect using DevTools.
+    </strong>
 
 </p>
 
