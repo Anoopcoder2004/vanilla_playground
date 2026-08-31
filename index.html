@@ -1,53 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Array Transformation Debugging</title>
+    <title>Performance Practice</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>Employee Report</h2>
+    <h1>Performance Lab</h1>
 
-<p style="color:red;">
+    <button id="freezeBtn">
+        Freeze UI
+    </button>
 
-    <strong>Issue:</strong>
+    <button id="testBtn">
+        Test Button
+    </button>
 
-    The application receives the correct employee data from the API.
+    <div id="output"></div>
 
-    <br><br>
-
-    The report should:
-
-    <br><br>
-
-    1. Include only active employees.
-    <br>
-    2. Increase salaries below ₹30,000 by 10%.
-    <br>
-    3. Convert each employee into:
-    <br>
-    <code>
-        { name, department, salary }
-    </code>
-    <br>
-    4. Sort employees by salary from highest to lowest.
-    <br>
-    5. Calculate the total salary.
-
-    <br><br>
-
-    However, the final report contains incorrect values.
-
-    <br><br>
-
-    <strong>
-        Find where the data becomes incorrect using DevTools.
-    </strong>
-
-</p>
-
-<script src="script.js"></script>
+    <script src="app.js"></script>
 
 </body>
 </html>
